@@ -22,12 +22,12 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update -y -qq
-          sudo apt-get -qq -y install curl clang-tidy cmake jq clang cppcheck clang-format bear g++>=9.3.0 gfortran>=9.3.0
+          sudo apt-get -qq -y install curl clang-tidy cmake jq python3-yaml clang cppcheck clang-format bear g++>=9.3.0 gfortran>=9.3.0
 
       - name: Get cpp linter repo
         run: |
           cd external
-          git clone https://github.com/AMReX-Astro/cpp-linter-action.git
+          git clone https://github.com/yut23/cpp-linter-action.git -b linter_testing
           cd ..
 
       - name: Check header includes
@@ -48,4 +48,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: clang-tidy-report
-          path: clang-tidy-report.txt
+          path: clang-tidy-report.*
