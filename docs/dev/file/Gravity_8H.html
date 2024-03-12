@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>File Gravity.H &mdash; Castro  documentation</title>
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=2e394b92" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script>window.MathJax = {"tex": {"macros": {"kth": "{{k_\\mathrm{th}}}", "gcc": "{\\mathrm{g~cm^{-3}}}", "cms": "{\\mathrm{cm~s^{-1}}}", "presunit": "{\\mathrm{dyn~cm^{-2}}}", "accelunit": "{\\mathrm{cm~s^{-2}}}", "ergg": "{\\mathrm{erg~g^{-1}}}", "Ab": "{{\\bf A}}", "eb": "{{\\bf e}}", "Fb": "{{\\bf F}}", "gb": "{{\\bf g}}", "Hb": "{{\\bf H}}", "ib": "{{\\bf i}}", "Ib": "{{\\bf I}}", "Kb": "{{\\bf K}}", "lb": "{{\\bf l}}", "Lb": "{{\\bf L}}", "nb": "{{\\bf n}}", "Pb": "{{\\bf P}}", "Qb": "{{\\bf Q}}", "rb": "{{\\bf r}}", "Rb": "{{\\bf R}}", "Sb": "{{\\bf S}}", "ub": "{{\\bf u}}", "Ub": "{{\\bf U}}", "xb": "{{\\bf x}}", "dt": "{\\Delta t}", "omegadot": "{\\dot\\omega}", "inp": "{{\\rm in}}", "outp": "{{\\rm out}}", "sync": "{{\\rm sync}}", "half": "{\\frac{1}{2}}", "myhalf": "{\\half}", "nph": "{{n+\\myhalf}}", "kpp": "{\\ensuremath{\\kappa_{\\mathrm{P}}}}", "kpr": "{\\ensuremath{\\kappa_{\\mathrm{R}}}}", "kpf": "{\\ensuremath{\\kappa_{\\mathrm{F}}}}", "vb": "{\\boldsymbol{v}}", "vbt": "{\\widetilde{\\vb}}", "rbt": "{\\widetilde{\\rb}}", "ob": "{\\boldsymbol{\\omega}}", "nablab": "{\\boldsymbol{\\nabla}}", "avg": ["{{\\left \\langle #1 \\right \\rangle}}", 1]}}}</script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "macros": {"kth": "{{k_\\mathrm{th}}}", "gcc": "{\\mathrm{g~cm^{-3}}}", "cms": "{\\mathrm{cm~s^{-1}}}", "presunit": "{\\mathrm{dyn~cm^{-2}}}", "accelunit": "{\\mathrm{cm~s^{-2}}}", "ergg": "{\\mathrm{erg~g^{-1}}}", "Ab": "{{\\bf A}}", "eb": "{{\\bf e}}", "Fb": "{{\\bf F}}", "gb": "{{\\bf g}}", "Hb": "{{\\bf H}}", "ib": "{{\\bf i}}", "Ib": "{{\\bf I}}", "Kb": "{{\\bf K}}", "lb": "{{\\bf l}}", "Lb": "{{\\bf L}}", "nb": "{{\\bf n}}", "Pb": "{{\\bf P}}", "Qb": "{{\\bf Q}}", "rb": "{{\\bf r}}", "Rb": "{{\\bf R}}", "Sb": "{{\\bf S}}", "ub": "{{\\bf u}}", "Ub": "{{\\bf U}}", "xb": "{{\\bf x}}", "dt": "{\\Delta t}", "omegadot": "{\\dot\\omega}", "inp": "{{\\rm in}}", "outp": "{{\\rm out}}", "sync": "{{\\rm sync}}", "half": "{\\frac{1}{2}}", "myhalf": "{\\half}", "nph": "{{n+\\myhalf}}", "kpp": "{\\ensuremath{\\kappa_{\\mathrm{P}}}}", "kpr": "{\\ensuremath{\\kappa_{\\mathrm{R}}}}", "kpf": "{\\ensuremath{\\kappa_{\\mathrm{F}}}}", "vb": "{\\boldsymbol{v}}", "vbt": "{\\widetilde{\\vb}}", "rbt": "{\\widetilde{\\rb}}", "ob": "{\\boldsymbol{\\omega}}", "nablab": "{\\boldsymbol{\\nabla}}", "avg": ["{{\\left \\langle #1 \\right \\rangle}}", 1]}}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -75,14 +80,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Hydrodynamics.html">Hydrodynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hse.html">Hydrostatic Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EOS.html">Equation of State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reactions.html">Reactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mhd.html">MHD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gravity.html">Gravity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../diffusion.html">Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../diffusion.html">Thermal Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rotation.html">Rotation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sponge.html">Sponge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../radiation.html">Radiation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Particles.html">Tracer particles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../EOSNetwork.html">Microphysics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdc.html">Spectral Deferred Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../AMR.html">Adaptive Mesh Refinement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ConvertCheckpoint.html">Checkpoint Embiggener</a></li>
@@ -95,7 +101,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../filelist.html">File list</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Castro_8H.html">File Castro.H</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Castro__F_8H.html">File Castro_F.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Castro__bc__fill__nd_8H.html">File Castro_bc_fill_nd.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Castro__diffusion_8H.html">File Castro_diffusion.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Castro__generic__fill_8H.html">File Castro_generic_fill.H</a></li>
@@ -112,9 +117,99 @@
 <li class="toctree-l2"><a class="reference internal" href="Castro__util_8H.html">File Castro_util.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Derive_8H.html">File Derive.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Diffusion_8H.html">File Diffusion.H</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">File Gravity.H</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">File Gravity.H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv410RealVector"><code class="docutils literal notranslate"><span class="pre">RealVector</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418GradPhiPhysBCFunct"><code class="docutils literal notranslate"><span class="pre">GradPhiPhysBCFunct</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv47Gravity"><code class="docutils literal notranslate"><span class="pre">Gravity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity7GravityEPN5amrex3AmrEiPN5amrex5BCRecEi"><code class="docutils literal notranslate"><span class="pre">Gravity::Gravity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7GravityD0Ev"><code class="docutils literal notranslate"><span class="pre">Gravity::~Gravity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity7GravityERK7Gravity"><code class="docutils literal notranslate"><span class="pre">Gravity::Gravity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity7GravityERR7Gravity"><code class="docutils literal notranslate"><span class="pre">Gravity::Gravity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7GravityaSERK7Gravity"><code class="docutils literal notranslate"><span class="pre">Gravity::operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7GravityaSERR7Gravity"><code class="docutils literal notranslate"><span class="pre">Gravity::operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity11read_paramsEv"><code class="docutils literal notranslate"><span class="pre">Gravity::read_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity21set_numpts_in_gravityEi"><code class="docutils literal notranslate"><span class="pre">Gravity::set_numpts_in_gravity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity13install_levelEiPN5amrex8AmrLevelERN5amrex8MultiFabEPN5amrex8MultiFabE"><code class="docutils literal notranslate"><span class="pre">Gravity::install_level()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity15set_mass_offsetEN5amrex4RealEb"><code class="docutils literal notranslate"><span class="pre">Gravity::set_mass_offset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity17get_grad_phi_prevEi"><code class="docutils literal notranslate"><span class="pre">Gravity::get_grad_phi_prev()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity17get_grad_phi_currEi"><code class="docutils literal notranslate"><span class="pre">Gravity::get_grad_phi_curr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity22get_grad_phi_prev_compEii"><code class="docutils literal notranslate"><span class="pre">Gravity::get_grad_phi_prev_comp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity18plus_grad_phi_currEiRN5amrex6VectorINSt10unique_ptrIN5amrex8MultiFabEEEEE"><code class="docutils literal notranslate"><span class="pre">Gravity::plus_grad_phi_curr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity14swapTimeLevelsEi"><code class="docutils literal notranslate"><span class="pre">Gravity::swapTimeLevels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity14update_max_rhsEv"><code class="docutils literal notranslate"><span class="pre">Gravity::update_max_rhs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity13solve_for_phiEiRN5amrex8MultiFabERKN5amrex6VectorIPN5amrex8MultiFabEEEi"><code class="docutils literal notranslate"><span class="pre">Gravity::solve_for_phi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity19solve_for_delta_phiEiiRKN5amrex6VectorIPN5amrex8MultiFabEEERKN5amrex6VectorIPN5amrex8MultiFabEEERKN5amrex6VectorIN5amrex6VectorIPN5amrex8MultiFabEEEEE"><code class="docutils literal notranslate"><span class="pre">Gravity::solve_for_delta_phi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity12gravity_syncEiiRKN5amrex6VectorIPN5amrex8MultiFabEEERKN5amrex6VectorIPN5amrex8MultiFabEEE"><code class="docutils literal notranslate"><span class="pre">Gravity::gravity_sync()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity28multilevel_solve_for_new_phiEii"><code class="docutils literal notranslate"><span class="pre">Gravity::multilevel_solve_for_new_phi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity23actual_multilevel_solveEiiRKN5amrex6VectorIN5amrex6VectorIPN5amrex8MultiFabEEEEEi"><code class="docutils literal notranslate"><span class="pre">Gravity::actual_multilevel_solve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity32create_comp_minus_level_grad_phiEiRN5amrex8MultiFabERKN5amrex6VectorIPN5amrex8MultiFabEEERN5amrex8MultiFabERN5amrex6VectorINSt10unique_ptrIN5amrex8MultiFabEEEEE"><code class="docutils literal notranslate"><span class="pre">Gravity::create_comp_minus_level_grad_phi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity10GetCrsePhiEiRN5amrex8MultiFabEN5amrex4RealE"><code class="docutils literal notranslate"><span class="pre">Gravity::GetCrsePhi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity19get_old_grav_vectorEiRN5amrex8MultiFabEN5amrex4RealE"><code class="docutils literal notranslate"><span class="pre">Gravity::get_old_grav_vector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity19get_new_grav_vectorEiRN5amrex8MultiFabEN5amrex4RealE"><code class="docutils literal notranslate"><span class="pre">Gravity::get_new_grav_vector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity24test_level_grad_phi_prevEi"><code class="docutils literal notranslate"><span class="pre">Gravity::test_level_grad_phi_prev()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity24test_level_grad_phi_currEi"><code class="docutils literal notranslate"><span class="pre">Gravity::test_level_grad_phi_curr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity18test_composite_phiEi"><code class="docutils literal notranslate"><span class="pre">Gravity::test_composite_phi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity28average_fine_ec_onto_crse_ecEii"><code class="docutils literal notranslate"><span class="pre">Gravity::average_fine_ec_onto_crse_ec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity19make_radial_gravityEiN5amrex4RealER10RealVector"><code class="docutils literal notranslate"><span class="pre">Gravity::make_radial_gravity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity25interpolate_monopole_gravEiR10RealVectorRN5amrex8MultiFabE"><code class="docutils literal notranslate"><span class="pre">Gravity::interpolate_monopole_grav()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity19compute_radial_massERKN5amrex3BoxEKN5amrex6Array4IKN5amrex4RealEEER10RealVectorR10RealVectorR10RealVectorii"><code class="docutils literal notranslate"><span class="pre">Gravity::compute_radial_mass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity18fill_multipole_BCsEiiRKN5amrex6VectorIPN5amrex8MultiFabEEERN5amrex8MultiFabE"><code class="docutils literal notranslate"><span class="pre">Gravity::fill_multipole_BCs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity19init_multipole_gravEv"><code class="docutils literal notranslate"><span class="pre">Gravity::init_multipole_grav()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity19fill_direct_sum_BCsEiiRKN5amrex6VectorIPN5amrex8MultiFabEEERN5amrex8MultiFabE"><code class="docutils literal notranslate"><span class="pre">Gravity::fill_direct_sum_BCs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity10make_mg_bcEv"><code class="docutils literal notranslate"><span class="pre">Gravity::make_mg_bc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity16applyMetricTermsEiRN5amrex8MultiFabERKN5amrex6VectorIPN5amrex8MultiFabEEE"><code class="docutils literal notranslate"><span class="pre">Gravity::applyMetricTerms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity11unweight_ccEiRN5amrex8MultiFabE"><code class="docutils literal notranslate"><span class="pre">Gravity::unweight_cc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity14unweight_edgesEiRKN5amrex6VectorIPN5amrex8MultiFabEEE"><code class="docutils literal notranslate"><span class="pre">Gravity::unweight_edges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity24add_pointmass_to_gravityEiRN5amrex8MultiFabERN5amrex8MultiFabE"><code class="docutils literal notranslate"><span class="pre">Gravity::add_pointmass_to_gravity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity7get_rhsEiii"><code class="docutils literal notranslate"><span class="pre">Gravity::get_rhs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity12sanity_checkEi"><code class="docutils literal notranslate"><span class="pre">Gravity::sanity_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity22actual_solve_with_mlmgEiiRKN5amrex6VectorIPN5amrex8MultiFabEEERKN5amrex6VectorIPKN5amrex8MultiFabEEERKN5amrex6VectorINSt5arrayIPN5amrex8MultiFabE14AMREX_SPACEDIMEEEERKN5amrex6VectorIPN5amrex8MultiFabEEEPCKN5amrex8MultiFabEN5amrex4RealEN5amrex4RealE"><code class="docutils literal notranslate"><span class="pre">Gravity::actual_solve_with_mlmg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity19solve_phi_with_mlmgEiiRKN5amrex6VectorIPN5amrex8MultiFabEEERKN5amrex6VectorIPN5amrex8MultiFabEEERKN5amrex6VectorIN5amrex6VectorIPN5amrex8MultiFabEEEEERKN5amrex6VectorIPN5amrex8MultiFabEEEN5amrex4RealE"><code class="docutils literal notranslate"><span class="pre">Gravity::solve_phi_with_mlmg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity6parentE"><code class="docutils literal notranslate"><span class="pre">Gravity::parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity9LevelDataE"><code class="docutils literal notranslate"><span class="pre">Gravity::LevelData</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity13grad_phi_currE"><code class="docutils literal notranslate"><span class="pre">Gravity::grad_phi_curr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity13grad_phi_prevE"><code class="docutils literal notranslate"><span class="pre">Gravity::grad_phi_prev</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity5gridsE"><code class="docutils literal notranslate"><span class="pre">Gravity::grids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity4dmapE"><code class="docutils literal notranslate"><span class="pre">Gravity::dmap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity7abs_tolE"><code class="docutils literal notranslate"><span class="pre">Gravity::abs_tol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity7rel_tolE"><code class="docutils literal notranslate"><span class="pre">Gravity::rel_tol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity20level_solver_resnormE"><code class="docutils literal notranslate"><span class="pre">Gravity::level_solver_resnorm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity7max_rhsE"><code class="docutils literal notranslate"><span class="pre">Gravity::max_rhs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity6volumeE"><code class="docutils literal notranslate"><span class="pre">Gravity::volume</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity4areaE"><code class="docutils literal notranslate"><span class="pre">Gravity::area</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity7DensityE"><code class="docutils literal notranslate"><span class="pre">Gravity::Density</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity22finest_level_allocatedE"><code class="docutils literal notranslate"><span class="pre">Gravity::finest_level_allocated</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity7phys_bcE"><code class="docutils literal notranslate"><span class="pre">Gravity::phys_bc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity9mlmg_lobcE"><code class="docutils literal notranslate"><span class="pre">Gravity::mlmg_lobc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity9mlmg_hibcE"><code class="docutils literal notranslate"><span class="pre">Gravity::mlmg_hibc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity15numpts_at_levelE"><code class="docutils literal notranslate"><span class="pre">Gravity::numpts_at_level</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity15radial_grav_oldE"><code class="docutils literal notranslate"><span class="pre">Gravity::radial_grav_old</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity15radial_grav_newE"><code class="docutils literal notranslate"><span class="pre">Gravity::radial_grav_new</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity11radial_massE"><code class="docutils literal notranslate"><span class="pre">Gravity::radial_mass</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity10radial_volE"><code class="docutils literal notranslate"><span class="pre">Gravity::radial_vol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity11radial_presE"><code class="docutils literal notranslate"><span class="pre">Gravity::radial_pres</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity22output_job_info_paramsERNSt7ostreamE"><code class="docutils literal notranslate"><span class="pre">Gravity::output_job_info_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity16get_gravity_typeEv"><code class="docutils literal notranslate"><span class="pre">Gravity::get_gravity_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity19get_max_solve_levelEv"><code class="docutils literal notranslate"><span class="pre">Gravity::get_max_solve_level()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity6NoSyncEv"><code class="docutils literal notranslate"><span class="pre">Gravity::NoSync()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity21DoCompositeCorrectionEv"><code class="docutils literal notranslate"><span class="pre">Gravity::DoCompositeCorrection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity22test_results_of_solvesEv"><code class="docutils literal notranslate"><span class="pre">Gravity::test_results_of_solves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity13test_residualERKN5amrex3BoxERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEi"><code class="docutils literal notranslate"><span class="pre">Gravity::test_residual()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity14get_const_gravEv"><code class="docutils literal notranslate"><span class="pre">Gravity::get_const_grav()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity11test_solvesE"><code class="docutils literal notranslate"><span class="pre">Gravity::test_solves</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity11mass_offsetE"><code class="docutils literal notranslate"><span class="pre">Gravity::mass_offset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity12stencil_typeE"><code class="docutils literal notranslate"><span class="pre">Gravity::stencil_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Gravity24max_radius_all_in_domainE"><code class="docutils literal notranslate"><span class="pre">Gravity::max_radius_all_in_domain</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv49multipole"><code class="docutils literal notranslate"><span class="pre">multipole</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N9multipole8lnum_maxE"><code class="docutils literal notranslate"><span class="pre">multipole::lnum_max</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="Gravity__util_8H.html">File Gravity_util.H</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HABEC__F_8H.html">File HABEC_F.H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HABEC_8H.html">File HABEC.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HypreABec_8H.html">File HypreABec.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HypreExtMultiABec_8H.html">File HypreExtMultiABec.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MGRadBndry_8H.html">File MGRadBndry.H</a></li>
@@ -122,9 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="NGBndry_8H.html">File NGBndry.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Problem_8H.html">File Problem.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Problem__Derive_8H.html">File Problem_Derive.H</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Problem__Derive__F_8H.html">File Problem_Derive_F.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Problem__Derives_8H.html">File Problem_Derives.H</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RAD__F_8H.html">File RAD_F.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RadBndry_8H.html">File RadBndry.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RadDerive_8H.html">File RadDerive.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RadHydro_8H.html">File RadHydro.H</a></li>
@@ -144,6 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="flatten_8H.html">File flatten.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fluxlimiter_8H.html">File fluxlimiter.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fourth__center__average_8H.html">File fourth_center_average.H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="global_8H.html">File global.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hybrid_8H.html">File hybrid.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="math_8H.html">File math.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mhd__eigen_8H.html">File mhd_eigen.H</a></li>
@@ -167,6 +261,9 @@
 <li class="toctree-l2"><a class="reference internal" href="riemann_8H.html">File riemann.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="riemann__solvers_8H.html">File riemann_solvers.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtime__parameters_8H.html">File runtime_parameters.H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdc__cons__to__burn_8H.html">File sdc_cons_to_burn.H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdc__newton__solve_8H.html">File sdc_newton_solve.H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdc__react__util_8H.html">File sdc_react_util.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slope_8H.html">File slope.H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vode__rhs__true__sdc_8H.html">File vode_rhs_true_sdc.H</a></li>
 </ul>
@@ -204,12 +301,12 @@
            <div itemprop="articleBody">
              
   <section id="file-gravity-h">
-<h1>File Gravity.H<a class="headerlink" href="#file-gravity-h" title="Permalink to this heading"></a></h1>
+<h1>File Gravity.H<a class="headerlink" href="#file-gravity-h" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv410RealVector">
-<span id="_CPPv310RealVector"></span><span id="_CPPv210RealVector"></span><span class="target" id="Gravity_8H_1aaf97af07ebc7e4ff37321a935bb572a9"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RealVector</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Gpu</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ManagedVector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv410RealVector" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv310RealVector"></span><span id="_CPPv210RealVector"></span><span class="target" id="Gravity_8H_1aaf97af07ebc7e4ff37321a935bb572a9"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RealVector</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Gpu</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ManagedVector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv410RealVector" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp type">
@@ -227,7 +324,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N7Gravity7GravityEPN5amrex3AmrEiPN5amrex5BCRecEi">
-<span id="_CPPv3N7Gravity7GravityEPN5amrex3AmrEiPN5amrex5BCRecEi"></span><span id="_CPPv2N7Gravity7GravityEPN5amrex3AmrEiPN5amrex5BCRecEi"></span><span id="Gravity::Gravity__amrex::AmrP.i.amrex::BCRecP.i"></span><span class="target" id="classGravity_1abe8f44802d38219bbeb34bfa244fc31e"></span><span class="sig-name descname"><span class="n"><span class="pre">Gravity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Amr</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">Parent</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">_finest_level</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">BCRec</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">_phys_bc</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">_Density</span></span><span class="sig-paren">)</span><br /></dt>
+<span id="_CPPv3N7Gravity7GravityEPN5amrex3AmrEiPN5amrex5BCRecEi"></span><span id="_CPPv2N7Gravity7GravityEPN5amrex3AmrEiPN5amrex5BCRecEi"></span><span id="Gravity::Gravity__amrex::AmrP.i.amrex::BCRecP.i"></span><span class="target" id="classGravity_1a19d2502982ff5d00f246b94d3613d2de"></span><span class="sig-name descname"><span class="n"><span class="pre">Gravity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Amr</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">Parent</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">_finest_level</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">BCRec</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">_phys_bc</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">_density</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Constructor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -235,7 +332,7 @@
 <li><p><strong>Parent</strong> – Parent <code class="docutils literal notranslate"><span class="pre">Amr</span></code> object </p></li>
 <li><p><strong>_finest_level</strong> – finest level </p></li>
 <li><p><strong>_phys_bc</strong> – <code class="docutils literal notranslate"><span class="pre">BCRec</span></code> object, physical boundary conditions </p></li>
-<li><p><strong>_Density</strong> – index of density component </p></li>
+<li><p><strong>_density</strong> – index of density component </p></li>
 </ul>
 </dd>
 </dl>
@@ -248,19 +345,30 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity11read_paramsEv">
-<span id="_CPPv3N7Gravity11read_paramsEv"></span><span id="_CPPv2N7Gravity11read_paramsEv"></span><span id="Gravity::read_params"></span><span class="target" id="classGravity_1a6069f195122b406d09303ee22a7c8f0c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_params</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Read gravity-related parameters from parameter file </p>
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity7GravityERK7Gravity">
+<span id="_CPPv3N7Gravity7GravityERK7Gravity"></span><span id="_CPPv2N7Gravity7GravityERK7Gravity"></span><span id="Gravity::Gravity__GravityCR"></span><span class="target" id="classGravity_1a49fdf857bb0dfa2e67e32c54450d088a"></span><span class="sig-name descname"><span class="n"><span class="pre">Gravity</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../class/classGravity.html#_CPPv4N7Gravity7GravityERK7Gravity" title="Gravity::Gravity"><span class="n"><span class="pre">Gravity</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><br /></dt>
+<dd><p>Remove copy/move constructors/assignment operators. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity22output_job_info_paramsERNSt7ostreamE">
-<span id="_CPPv3N7Gravity22output_job_info_paramsERNSt7ostreamE"></span><span id="_CPPv2N7Gravity22output_job_info_paramsERNSt7ostreamE"></span><span id="Gravity::output_job_info_params__osR"></span><span class="target" id="classGravity_1a84d911d64f05675bab39370a25b2ea81"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">output_job_info_params</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">jobInfoFile</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>jobInfoFile</strong> – std::ostream object </p>
-</dd>
-</dl>
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity7GravityERR7Gravity">
+<span id="_CPPv3N7Gravity7GravityERR7Gravity"></span><span id="_CPPv2N7Gravity7GravityERR7Gravity"></span><span id="Gravity::Gravity__GravityRR"></span><span class="target" id="classGravity_1a969b76f4447216d37c13450bf4ed31c7"></span><span class="sig-name descname"><span class="n"><span class="pre">Gravity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../class/classGravity.html#_CPPv4N7Gravity7GravityERR7Gravity" title="Gravity::Gravity"><span class="n"><span class="pre">Gravity</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7GravityaSERK7Gravity">
+<span id="_CPPv3N7GravityaSERK7Gravity"></span><span id="_CPPv2N7GravityaSERK7Gravity"></span><span id="Gravity::assign-operator__GravityCR"></span><span class="target" id="classGravity_1aefd8baa915d0ec7f106bfcda4cc368e9"></span><a class="reference internal" href="../class/classGravity.html#_CPPv47Gravity" title="Gravity"><span class="n"><span class="pre">Gravity</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../class/classGravity.html#_CPPv47Gravity" title="Gravity"><span class="n"><span class="pre">Gravity</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7GravityaSERR7Gravity">
+<span id="_CPPv3N7GravityaSERR7Gravity"></span><span id="_CPPv2N7GravityaSERR7Gravity"></span><span id="Gravity::assign-operator__GravityRR"></span><span class="target" id="classGravity_1a086acba6a9e57b081d7185a4a1c257b5"></span><a class="reference internal" href="../class/classGravity.html#_CPPv47Gravity" title="Gravity"><span class="n"><span class="pre">Gravity</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../class/classGravity.html#_CPPv47Gravity" title="Gravity"><span class="n"><span class="pre">Gravity</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity11read_paramsEv">
+<span id="_CPPv3N7Gravity11read_paramsEv"></span><span id="_CPPv2N7Gravity11read_paramsEv"></span><span id="Gravity::read_params"></span><span class="target" id="classGravity_1a6069f195122b406d09303ee22a7c8f0c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_params</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Read gravity-related parameters from parameter file </p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -288,42 +396,6 @@
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity16get_gravity_typeEv">
-<span id="_CPPv3N7Gravity16get_gravity_typeEv"></span><span id="_CPPv2N7Gravity16get_gravity_typeEv"></span><span id="Gravity::get_gravity_type"></span><span class="target" id="classGravity_1ac1111ad311c18e7134d528cee52d55f7"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_gravity_type</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">gravity_type</span></code></p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity19get_max_solve_levelEv">
-<span id="_CPPv3N7Gravity19get_max_solve_levelEv"></span><span id="_CPPv2N7Gravity19get_max_solve_levelEv"></span><span id="Gravity::get_max_solve_level"></span><span class="target" id="classGravity_1ac4877092ceb2ab6e203ed67703b9b08e"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_max_solve_level</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">max_solve_level</span></code></p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity6NoSyncEv">
-<span id="_CPPv3N7Gravity6NoSyncEv"></span><span id="_CPPv2N7Gravity6NoSyncEv"></span><span id="Gravity::NoSync"></span><span class="target" id="classGravity_1adfaecdab2be564bab494067c5e108f1d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NoSync</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">no_sync</span></code></p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity11NoCompositeEv">
-<span id="_CPPv3N7Gravity11NoCompositeEv"></span><span id="_CPPv2N7Gravity11NoCompositeEv"></span><span id="Gravity::NoComposite"></span><span class="target" id="classGravity_1ac11d16a91195fbd220fc03b87bdd213e"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NoComposite</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">no_composite</span></code></p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity21DoCompositeCorrectionEv">
-<span id="_CPPv3N7Gravity21DoCompositeCorrectionEv"></span><span id="_CPPv2N7Gravity21DoCompositeCorrectionEv"></span><span id="Gravity::DoCompositeCorrection"></span><span class="target" id="classGravity_1a77c7d155d9abfffe10bb529f20a29b76"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DoCompositeCorrection</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">do_composite_phi_correction</span></code></p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity22test_results_of_solvesEv">
-<span id="_CPPv3N7Gravity22test_results_of_solvesEv"></span><span id="_CPPv2N7Gravity22test_results_of_solvesEv"></span><span id="Gravity::test_results_of_solves"></span><span class="target" id="classGravity_1a1e23dadc99e7bde2dbe3ddd96c78d18d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">test_results_of_solves</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">test_solves</span></code></p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -543,24 +615,6 @@
 <li><p><strong>level</strong> – Level index </p></li>
 <li><p><strong>grav_vector</strong> – MultiFab containing gravity vector </p></li>
 <li><p><strong>time</strong> – Current time </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity13test_residualERKN5amrex3BoxERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEi">
-<span id="_CPPv3N7Gravity13test_residualERKN5amrex3BoxERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEi"></span><span id="_CPPv2N7Gravity13test_residualERKN5amrex3BoxERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEi"></span><span id="Gravity::test_residual__amrex::BoxCR.amrex::Array4:amrex::Real:CR.amrex::Array4:amrex::Real:CR.amrex::Array4:amrex::Real:CR.amrex::Array4:amrex::Real:CR.amrex::GpuArray:amrex::Real.AMREX_SPACEDIM:.amrex::GpuArray:amrex::Real.AMREX_SPACEDIM:.i"></span><span class="target" id="classGravity_1a1f5722b41d2a8021f2c7d044f21cb6b1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">test_residual</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Box</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bx</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Array4</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Array4</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ecx</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Array4</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ecy</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Array4</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ecz</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">GpuArray</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">AMREX_SPACEDIM</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dx</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">GpuArray</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">AMREX_SPACEDIM</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">problo</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">coord_type</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Test whether using the edge-based gradients to compute Div(Grad(Phi)) satisfies Lap(phi) = RHS</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>bx</strong> – box </p></li>
-<li><p><strong>rhs</strong> – right-hand-side </p></li>
-<li><p><strong>ecx</strong> – gradients wrt x </p></li>
-<li><p><strong>ecy</strong> – gradients wrt y </p></li>
-<li><p><strong>ecz</strong> – gradients wrt z </p></li>
-<li><p><strong>coord_type</strong> – coordinate system </p></li>
 </ul>
 </dd>
 </dl>
@@ -823,11 +877,6 @@
 </dl>
 </dd></dl>
 
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity14get_const_gravEv">
-<span id="_CPPv3N7Gravity14get_const_gravEv"></span><span id="_CPPv2N7Gravity14get_const_gravEv"></span><span id="Gravity::get_const_grav"></span><span class="target" id="classGravity_1a02c1820217c0ff4390f3cebb6b87ffba"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_const_grav</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd></dd></dl>
-
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
@@ -905,11 +954,6 @@
 <dd></dd></dl>
 
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N7Gravity12finest_levelE">
-<span id="_CPPv3N7Gravity12finest_levelE"></span><span id="_CPPv2N7Gravity12finest_levelE"></span><span id="Gravity::finest_level__i"></span><span class="target" id="classGravity_1a4488c2636d8beef373f89f1e0c55e91e"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">finest_level</span></span></span><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N7Gravity22finest_level_allocatedE">
 <span id="_CPPv3N7Gravity22finest_level_allocatedE"></span><span id="_CPPv2N7Gravity22finest_level_allocatedE"></span><span id="Gravity::finest_level_allocated__i"></span><span class="target" id="classGravity_1a79dc456ce35ab432cc1bec772f001cd7"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">finest_level_allocated</span></span></span><br /></dt>
 <dd></dd></dl>
@@ -961,6 +1005,72 @@
 
 </div>
 <div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity22output_job_info_paramsERNSt7ostreamE">
+<span id="_CPPv3N7Gravity22output_job_info_paramsERNSt7ostreamE"></span><span id="_CPPv2N7Gravity22output_job_info_paramsERNSt7ostreamE"></span><span id="Gravity::output_job_info_params__osR"></span><span class="target" id="classGravity_1ac952ff3ed1a0b5316d2e3da8c8c2642c"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">output_job_info_params</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">jobInfoFile</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jobInfoFile</strong> – std::ostream object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity16get_gravity_typeEv">
+<span id="_CPPv3N7Gravity16get_gravity_typeEv"></span><span id="_CPPv2N7Gravity16get_gravity_typeEv"></span><span id="Gravity::get_gravity_type"></span><span class="target" id="classGravity_1a8acf20db6265b0e7482988e12ba05f98"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_gravity_type</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">gravity_type</span></code></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity19get_max_solve_levelEv">
+<span id="_CPPv3N7Gravity19get_max_solve_levelEv"></span><span id="_CPPv2N7Gravity19get_max_solve_levelEv"></span><span id="Gravity::get_max_solve_level"></span><span class="target" id="classGravity_1ad6385907e21039d8249c2e5aa3bf64b5"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_max_solve_level</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">max_solve_level</span></code></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity6NoSyncEv">
+<span id="_CPPv3N7Gravity6NoSyncEv"></span><span id="_CPPv2N7Gravity6NoSyncEv"></span><span id="Gravity::NoSync"></span><span class="target" id="classGravity_1a0cb55610051f165a0cf5ea41bff6edd0"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NoSync</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">no_sync</span></code></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity21DoCompositeCorrectionEv">
+<span id="_CPPv3N7Gravity21DoCompositeCorrectionEv"></span><span id="_CPPv2N7Gravity21DoCompositeCorrectionEv"></span><span id="Gravity::DoCompositeCorrection"></span><span class="target" id="classGravity_1a24ab70544b4e5c27d876797ee5795d56"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DoCompositeCorrection</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">do_composite_phi_correction</span></code></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity22test_results_of_solvesEv">
+<span id="_CPPv3N7Gravity22test_results_of_solvesEv"></span><span id="_CPPv2N7Gravity22test_results_of_solvesEv"></span><span id="Gravity::test_results_of_solves"></span><span class="target" id="classGravity_1a6789fc6db678fd764f87938db928a2d5"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">test_results_of_solves</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">test_solves</span></code></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity13test_residualERKN5amrex3BoxERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEi">
+<span id="_CPPv3N7Gravity13test_residualERKN5amrex3BoxERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEi"></span><span id="_CPPv2N7Gravity13test_residualERKN5amrex3BoxERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEERKN5amrex6Array4IN5amrex4RealEEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEN5amrex8GpuArrayIN5amrex4RealE14AMREX_SPACEDIMEEi"></span><span id="Gravity::test_residual__amrex::BoxCR.amrex::Array4:amrex::Real:CR.amrex::Array4:amrex::Real:CR.amrex::Array4:amrex::Real:CR.amrex::Array4:amrex::Real:CR.amrex::GpuArray:amrex::Real.AMREX_SPACEDIM:.amrex::GpuArray:amrex::Real.AMREX_SPACEDIM:.i"></span><span class="target" id="classGravity_1a186253e68b40b5c867f2e1b053729092"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">test_residual</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Box</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bx</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Array4</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Array4</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ecx</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Array4</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ecy</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Array4</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ecz</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">GpuArray</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">AMREX_SPACEDIM</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dx</span></span>, <a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">GpuArray</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">AMREX_SPACEDIM</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">problo</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">coord_type</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Test whether using the edge-based gradients to compute Div(Grad(Phi)) satisfies Lap(phi) = RHS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bx</strong> – box </p></li>
+<li><p><strong>rhs</strong> – right-hand-side </p></li>
+<li><p><strong>ecx</strong> – gradients wrt x </p></li>
+<li><p><strong>ecy</strong> – gradients wrt y </p></li>
+<li><p><strong>ecz</strong> – gradients wrt z </p></li>
+<li><p><strong>coord_type</strong> – coordinate system </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Gravity14get_const_gravEv">
+<span id="_CPPv3N7Gravity14get_const_gravEv"></span><span id="_CPPv2N7Gravity14get_const_gravEv"></span><span id="Gravity::get_const_grav"></span><span class="target" id="classGravity_1aac19c1b9a5d37e662416386eb714bec9"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="Castro__util_8H.html#_CPPv45amrex" title="amrex"><span class="n"><span class="pre">amrex</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_const_grav</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N7Gravity11test_solvesE">
@@ -987,13 +1097,13 @@
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv49multipole">
-<span id="_CPPv39multipole"></span><span id="_CPPv29multipole"></span><span id="multipole"></span><span class="target" id="namespacemultipole"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">multipole</span></span></span><a class="headerlink" href="#_CPPv49multipole" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv39multipole"></span><span id="_CPPv29multipole"></span><span id="multipole"></span><span class="target" id="namespacemultipole"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">multipole</span></span></span><a class="headerlink" href="#_CPPv49multipole" title="Link to this definition"></a><br /></dt>
 <dd><p>Multipole gravity data </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N9multipole8lnum_maxE">
-<span id="_CPPv3N9multipole8lnum_maxE"></span><span id="_CPPv2N9multipole8lnum_maxE"></span><span id="multipole::lnum_max__iC"></span><span class="target" id="namespacemultipole_1ab3813a07e17ce4054dfb7aa9555662d8"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lnum_max</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">30</span></span><a class="headerlink" href="#_CPPv4N9multipole8lnum_maxE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N9multipole8lnum_maxE"></span><span id="_CPPv2N9multipole8lnum_maxE"></span><span id="multipole::lnum_max__iC"></span><span class="target" id="namespacemultipole_1ab3813a07e17ce4054dfb7aa9555662d8"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lnum_max</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">30</span></span><a class="headerlink" href="#_CPPv4N9multipole8lnum_maxE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">

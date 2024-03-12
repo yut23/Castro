@@ -71,7 +71,7 @@ If a refinement indicator is added, either
    using the Poisson gravity solver. If your tagging criteria are met in these
    zones, they will be ignored.
 
-Sometimes, we wish to force the code to derefine based on a critera,
+Sometimes, we wish to force the code to derefine based on a criteria,
 even if other indicators tagged a zone for refinement.  This is
 accomplished by created another refinement indicator and setting the
 ``derefine`` field to ``1``.  For example, to derefine any zone where
@@ -148,6 +148,8 @@ fine cell data above it.)
 
 The synchronization consists of two parts:
 
+.. index:: castro.do_reflux
+
 -  Step 1: Hyperbolic reflux
 
    In the hyperbolic reflux step, we update the conserved variables with
@@ -159,7 +161,7 @@ The synchronization consists of two parts:
    where :math:`V` is the volume of the cell and the correction from
    :math:`\delta\Fb` is supported only on coarse cells adjacent to fine grids.
 
-   Note: this can be enabled/disabled via castro.do_reflux. Generally,
+   Note: this can be enabled/disabled via ``castro.do_reflux``. Generally,
    it should be enabled (1).
 
    Also note that for axisymmetric or 1D spherical coordinates, the

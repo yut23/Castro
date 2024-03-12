@@ -271,8 +271,6 @@ radiation quantities).
 | (where X is any of the species    | :math:`\omegadot_k = DX_k/Dt`                     |                                      |
 | defined in the network)           |                                                   |                                      |
 +-----------------------------------+---------------------------------------------------+--------------------------------------+
-| ``enuc``                          | Nuclear energy generation rate / gram             | :math:`{\rm erg~g^{-1}~s^{-1}}`      |
-+-----------------------------------+---------------------------------------------------+--------------------------------------+
 | ``rho_enuc``                      | Nuclear energy generation rate density            | :math:`{\rm erg~cm^{-3}~s^{-1}}`     |
 +-----------------------------------+---------------------------------------------------+--------------------------------------+
 | ``phiGrav``                       | Gravitational potential                           | :math:`{\rm erg~g^{-1}}`             |
@@ -393,7 +391,8 @@ Derived variables
 | ``y_velocity``,                   | :math:`\ub = (\rho \ub)/\rho`                     |                             |                                         |
 | ``z_velocity``                    |                                                   |                             |                                         |
 +-----------------------------------+---------------------------------------------------+-----------------------------+-----------------------------------------+
-
+| ``enuc``                          | Nuclear energy generation rate / gram             | ``derenuc``                 | :math:`{\rm erg~g^{-1}~s^{-1}}`         |
++-----------------------------------+---------------------------------------------------+-----------------------------+-----------------------------------------+
 
 problem-specific plotfile variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -508,7 +507,7 @@ can be plotted very easily to monitor the time step.
 Integral Diagnostics
 --------------------
 
-.. index:: castro.sum_interval, integral diagnostics
+.. index:: castro.sum_interval, integral diagnostics, amr_diag.out, gravity_diag.out, grid_diag.out, species_diag.out
 
 Castro can calculate integrals of quantities on the grid and other
 global quantities and output them to both the screen and to a runtime
@@ -558,7 +557,19 @@ By default, 4 output files are created:
 
   * ``species_diag.out`` : This contains the mass of each of the nuclear species on the grid.
 
-Some problems have custom versions of the diagnostics with additional information.
+    .. note::
+
+       The species masses are given in units of solar masses.
+
+``Castro/Util/scripts/diag_parser.py`` contains Python code for parsing
+these output files into Numpy arrays.  Usage instructions are included
+in the file, along with an example script at
+``Castro/Util/scripts/plot_species.py``.  This reads a
+``species_diag.out`` file provided on the command line and makes a plot
+of the total mass fractions over time.
+
+Some problems have custom versions of the diagnostics with additional
+information.  These are not currently supported by the Python parser.
 
 
 .. _sec:parallel_io:
@@ -598,7 +609,7 @@ the ``MultiFab`` was written to disk.
 
 Think of the number :math:`N` as the number of independent I/O pathways in
 your underlying parallel filesystem. Of course a “real” parallel
-filesytem should be able to handle any reasonable value of :math:`N`. The
+filesystem should be able to handle any reasonable value of :math:`N`. The
 value -1 forces :math:`N` to the number of CPUs on which you’re
 running, which means that each CPU writes to a unique file, which can
 create a very large number of files, which can lead to inode issues.
