@@ -18,7 +18,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="_static/copybutton.js?v=f281be69"></script>
@@ -209,6 +209,13 @@ the <code class="docutils literal notranslate"><span class="pre">-O</span></code
 <p>You can also use ask it to fix errors automatically via:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">make<span class="w"> </span><span class="nv">USE_CLANG_TIDY</span><span class="o">=</span>TRUE<span class="w"> </span><span class="nv">CLANG_TIDY</span><span class="o">=</span><span class="s2">&quot;clang-tidy --fix-errors&quot;</span></span>
 </pre></div></div><p>and you can treat warnings as errors by adding <code class="docutils literal notranslate"><span class="pre">CLANG_TIDY_WARN_ERROR=TRUE</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Building a Castro problem with <code class="docutils literal notranslate"><span class="pre">clang-tidy</span></code> will suppress the
+checks in AMReX and Microphysics sources and headers.  This is set by
+the parameter <code class="docutils literal notranslate"><span class="pre">CLANG_TIDY_IGNORE_SOURCES</span></code> in <code class="docutils literal notranslate"><span class="pre">Make.Castro</span></code>, and
+the <code class="docutils literal notranslate"><span class="pre">HeaderFilterRegex</span></code> whitelist in <code class="docutils literal notranslate"><span class="pre">.clang-tidy</span></code>.</p>
+</div>
 </section>
 <section id="thread-sanitizer">
 <h3>Thread sanitizer<a class="headerlink" href="#thread-sanitizer" title="Link to this heading"></a></h3>
@@ -252,7 +259,7 @@ to operate over.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2018-2022, Castro development team.</p>
+    <p>&#169; Copyright 2018-2024, Castro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
