@@ -55,7 +55,7 @@ if files[0] in ('-f', '--force'):
     files = files[1:]
     force = True
 
-imagefile_template = "{}_slice.png"
+imagefile_template = "{}_slice_density.png"
 
 # filter out any images that already exist
 actual_files = []
@@ -90,17 +90,20 @@ for plotfile in actual_files:
     fig.set_size_inches(12.0, 9.0)
 
     if ("boxlib", "X(ash)") in ds.field_list:
-        fields = ["Temp", "X(ash)", "enuc", "z_velocity"]
+        fields = ["Temp", "ash_density", "density", "enuc"]
     elif "_smallplt" in plotfile:
-        fields = ["Temp", "X(ash)", "enuc", "z_velocity"]
+        fields = ["Temp", "X(ash)", "enuc", "density"]
     else:
-        fields = ["Temp", "ash", "enuc", "z_velocity"] #, "density"]
+        fields = ["Temp", "ash", "enuc", "density"]
 
     abar_min = 1.0 / sum(X / A for _, A, X in get_fuel_info(ds).values())
 
     grid = ImageGrid(fig, 111, nrows_ncols=(len(fields), 1),
                      axes_pad=0.27, label_mode="L", cbar_mode="each")
 
+    ad = ds.all_data()
+    print("ash_density:", ad.quantities.extrema(("gas", "ash_density")))
+    print("density:", ad.quantities.extrema(("gas", "density")))
 
     try:
         for i, f in enumerate(fields):
@@ -123,7 +126,7 @@ for plotfile in actual_files:
             elif f == "enuc":
                 sp.set_zlim(f, 1.e14, 3.e17)
             elif f == "density":
-                sp.set_zlim(f, 1.e-3, 5.e8)
+                sp.set_zlim(f, 1.e-3, 5.e7)
             elif f == "z_velocity":
                 sp.set_zlim(f, -2.e8, 2.e8)
                 sp.set_log(f, False)
@@ -134,6 +137,10 @@ for plotfile in actual_files:
                 sp.set_cmap(f, "plasma_r")
             elif f in {"ash", "X(ash)"}:
                 sp.set_zlim(f, 1.e-5, 0.1)
+                sp.set_log(f, True)
+                sp.set_cmap(f, "plasma_r")
+            elif f == "ash_density":
+                sp.set_zlim(f, 1.e-3, 1e5)
                 sp.set_log(f, True)
                 sp.set_cmap(f, "plasma_r")
 
