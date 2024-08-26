@@ -566,7 +566,7 @@ Castro::read_params ()
     // in Amr::InitAmr(), right before the ParmParse checks, so if the user opts to
     // override our overriding, they can do so.
 
-    Amr::setComputeNewDtOnRegrid(1);
+    Amr::setComputeNewDtOnRegrid(true);
 
     // Read in custom refinement scheme.
 
@@ -3048,14 +3048,16 @@ Castro::reflux (int crse_level, int fine_level, bool in_post_timestep)
     if (verbose)
     {
         const int IOProc = ParallelDescriptor::IOProcessorNumber();
-        Real      end    = ParallelDescriptor::second() - strt;
+        amrex::Real end = ParallelDescriptor::second() - strt;
+        amrex::Real llevel = level;
 
 #ifdef BL_LAZY
         Lazy::QueueReduction( [=] () mutable {
 #endif
         ParallelDescriptor::ReduceRealMax(end,IOProc);
         if (ParallelDescriptor::IOProcessor()) {
-          std::cout << "Castro::reflux() at level " << level << " : time = " << end << std::endl;
+            std::cout << "Castro::reflux() at level " << llevel
+                      << " : time = " << end << std::endl;
         }
 #ifdef BL_LAZY
         });
@@ -3123,6 +3125,9 @@ Castro::normalize_species (MultiFab& S_new, int ng)
                         X > 1.0_rt + castro::abundance_failure_tolerance) {
 #ifndef AMREX_USE_GPU
                         std::cout << "(i, j, k) = " << i << " " << j << " " << k << " " << ", X[" << n << "] = " << X << "  (density here is: " << u(i,j,k,URHO) << ")" << std::endl;
+#elif defined(ALLOW_GPU_PRINTF)
+                        AMREX_DEVICE_PRINTF("(i, j, k) = %d %d %d, X[%d] = %g  (density here is: %g)\n",
+                                            i, j, k, n, X, u(i,j,k,URHO));
 #endif
                     }
                 }
@@ -3300,6 +3305,9 @@ Castro::check_for_negative_density ()
                         std::cout << "Invalid X[" << n << "] = " << X << " in zone "
                                   << i << ", " << j << ", " << k
                                   << " with density = " << rho << "\n";
+#elif defined(ALLOW_GPU_PRINTF)
+                        AMREX_DEVICE_PRINTF("Invalid X[%d] = %g in zone (%d,%d,%d) with density = %g\n",
+                                            n, X, i, j, k, rho);
 #endif
                         X_check_failed = 1;
                     }
@@ -3309,6 +3317,10 @@ Castro::check_for_negative_density ()
 
             return {rho_check_failed, X_check_failed};
         });
+
+#ifdef ALLOW_GPU_PRINTF
+        std::fflush(nullptr);
+#endif
 
     }
 

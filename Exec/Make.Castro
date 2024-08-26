@@ -55,6 +55,9 @@ endif
 # Require C++17
 CXXSTD := c++17
 
+# Use Lazy QueueReduction for the timing outputs
+LAZY := TRUE
+
 # default integrator
 INTEGRATOR_DIR ?= VODE
 
@@ -134,6 +137,10 @@ ifeq ($(USE_GPU),TRUE)
   ifeq ($(USE_OMP),TRUE)
     $(error OpenMP is not supported by Castro when building with GPU support)
   endif
+endif
+
+ifeq ($(USE_GPU_PRINTF),TRUE)
+  DEFINES += -DALLOW_GPU_PRINTF
 endif
 
 CASTRO_AUTO_SOURCE_DIR := $(TmpBuildDir)/castro_sources/$(optionsSuffix).EXE
