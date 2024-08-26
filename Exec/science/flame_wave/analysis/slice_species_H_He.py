@@ -85,80 +85,85 @@ for plotfile in actual_files:
 
 
     slice_plots = {}
-    for i, f in enumerate(fields):
-        # pylint: disable=no-member
+    try:
+        for i, f in enumerate(fields):
+            # pylint: disable=no-member
 
-        kwargs = bounds_kwargs.copy()
-        # if f == "enuc":
-        #     # mask out any negative values, since they can screw up the log-scale
-        #     # colormap bounds and make the background white instead of red
-        #     kwargs["data_source"] = ds.all_data().include_above("enuc", 0)
-        if yt.version_info >= (4, 0, 0):
-            kwargs["buff_size"] = buff_size
-        sp = yt.SlicePlot(ds, "theta", f, fontsize=16, **kwargs)
-        if "buff_size" not in kwargs:
-            sp.set_buff_size(buff_size)
-        slice_plots[f] = sp
+            kwargs = bounds_kwargs.copy()
+            # if f == "enuc":
+            #     # mask out any negative values, since they can screw up the log-scale
+            #     # colormap bounds and make the background white instead of red
+            #     kwargs["data_source"] = ds.all_data().include_above("enuc", 0)
+            if yt.version_info >= (4, 0, 0):
+                kwargs["buff_size"] = buff_size
+            sp = yt.SlicePlot(ds, "theta", f, fontsize=16, **kwargs)
+            if "buff_size" not in kwargs:
+                sp.set_buff_size(buff_size)
+            slice_plots[f] = sp
 
-        # if f == "Temp":
-        #     sp.set_zlim(f, 5.e7, 1.5e9)
-        #     sp.set_cmap(f, "magma_r")
-        # elif f == "enuc":
-        #     sp.set_zlim(f, 1.e14, 3.e17)
-        # elif f == "density":
-        #     sp.set_zlim(f, 1.e-3, 5.e8)
-        # elif f == "z_velocity":
-        #     sp.set_zlim(f, -2.e8, 2.e8)
-        #     sp.set_log(f, False)
-        #     sp.set_cmap(f, "bwr")
-        # elif f == "abar":
-        #     sp.set_zlim(f, abar_min, 5)
-        #     sp.set_log(f, False)
-        #     sp.set_cmap(f, "plasma_r")
-        # elif f == "ash":
-        #     sp.set_zlim(f, 1.e-5, 0.1)
-        #     sp.set_log(f, True)
-        #     sp.set_cmap(f, "plasma_r")
-        sp.set_zlim(f, 1e-10, 1)
-        # sp.set_zlim(f, 0, 1)
-        sp.set_log(f, True)
-        sp.set_cmap(f, "plasma")
-
-        #if f != "density":
-        #    # now do a contour of density
-        #    sp.annotate_contour("density", ncont=2, clim=(1.e2, 2.e6),
-        #                        plot_args={"colors": "0.5", "linewidths": 1, "linestyle": ":"})
-
-        sp.set_axes_unit("cm")
-
-        #sp.annotate_text((0.05, 0.05), "{:8.5f} s".format(float(ds.current_time.in_cgs())),
-        #                 coord_system="figure", text_args={"color": "black"})
-
-        plot = sp.plots[f]
-        plot.figure = fig
-        plot.axes = grid[i].axes
-        plot.cax = grid.cbar_axes[i]
-        if i < len(fields)-1:
-            grid[i].axes.xaxis.offsetText.set_visible(False)
-
-        if f == "enuc":
+            # if f == "Temp":
+            #     sp.set_zlim(f, 5.e7, 1.5e9)
+            #     sp.set_cmap(f, "magma_r")
+            # elif f == "enuc":
+            #     sp.set_zlim(f, 1.e14, 3.e17)
+            # elif f == "density":
+            #     sp.set_zlim(f, 1.e-3, 5.e8)
+            # elif f == "z_velocity":
+            #     sp.set_zlim(f, -2.e8, 2.e8)
+            #     sp.set_log(f, False)
+            #     sp.set_cmap(f, "bwr")
+            # elif f == "abar":
+            #     sp.set_zlim(f, abar_min, 5)
+            #     sp.set_log(f, False)
+            #     sp.set_cmap(f, "plasma_r")
+            # elif f == "ash":
+            #     sp.set_zlim(f, 1.e-5, 0.1)
+            #     sp.set_log(f, True)
+            #     sp.set_cmap(f, "plasma_r")
+            sp.set_zlim(f, 1e-10, 1)
+            # sp.set_zlim(f, 0, 1)
             sp.set_log(f, True)
+            sp.set_cmap(f, "plasma")
 
-        sp._setup_plots()
+            #if f != "density":
+            #    # now do a contour of density
+            #    sp.annotate_contour("density", ncont=2, clim=(1.e2, 2.e6),
+            #                        plot_args={"colors": "0.5", "linewidths": 1, "linestyle": ":"})
 
-    util.add_label(fig, ds, initial_mass_fractions["X(H1)"])
+            sp.set_axes_unit("cm")
 
-    fig.set_size_inches(19.2, 10.8)
-    plt.tight_layout()
-    plt.savefig(basename + imagefile_suffixes[0])
+            #sp.annotate_text((0.05, 0.05), "{:8.5f} s".format(float(ds.current_time.in_cgs())),
+            #                 coord_system="figure", text_args={"color": "black"})
 
-    for f, sp in slice_plots.items():
-        sp.set_zlim(f, 0, min(initial_mass_fractions.get(f, 1.0 / 1.1) * 1.1, 1.0))
-        sp.set_log(f, False)
-        sp._setup_plots()
-    fig.set_size_inches(19.2, 10.8)
-    # plt.tight_layout()
-    plt.savefig(basename + imagefile_suffixes[1])
-    plt.close(fig)
+            plot = sp.plots[f]
+            plot.figure = fig
+            plot.axes = grid[i].axes
+            plot.cax = grid.cbar_axes[i]
+            if i < len(fields)-1:
+                grid[i].axes.xaxis.offsetText.set_visible(False)
+
+            if f == "enuc":
+                sp.set_log(f, True)
+
+            sp._setup_plots()
+
+        util.add_label(fig, ds, initial_mass_fractions["X(H1)"])
+
+        fig.set_size_inches(19.2, 10.8)
+        plt.tight_layout()
+        plt.savefig(basename + imagefile_suffixes[0])
+
+        for f, sp in slice_plots.items():
+            sp.set_zlim(f, 0, min(initial_mass_fractions.get(f, 1.0 / 1.1) * 1.1, 1.0))
+            sp.set_log(f, False)
+            sp._setup_plots()
+        fig.set_size_inches(19.2, 10.8)
+        # plt.tight_layout()
+        plt.savefig(basename + imagefile_suffixes[1])
+        plt.close(fig)
+        del sp
+    except Exception:
+        print(f"ERROR: rendering {os.path.basename(plotfile)} failed:")
+        traceback.print_exc(file=sys.stdout)
     ds.index.clear_all_data()
-    del ds, grid, sp
+    del ds, grid, slice_plots
