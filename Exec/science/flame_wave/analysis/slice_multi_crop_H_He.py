@@ -81,7 +81,7 @@ for plotfile in actual_files:
     fig.set_size_inches(12.0, 9.0)
 
     if ("boxlib", "X(ash)") in ds.field_list:
-        fields = ["Temp", "X(ash)", "enuc", "z_velocity"]
+        fields = ["Temp", "ash_density", "enuc", "z_velocity"]
     elif "_smallplt" in plotfile:
         fields = ["Temp", "X(ash)", "enuc", "z_velocity"]
     else:
@@ -114,9 +114,9 @@ for plotfile in actual_files:
                 sp.set_zlim(f, 5.e7, 1.5e9)
                 sp.set_cmap(f, "magma_r")
             elif f == "enuc":
-                sp.set_zlim(f, 1.e14, 3.e17)
+                sp.set_zlim(f, 1.e14, 1.e18)
             elif f == "density":
-                sp.set_zlim(f, 1.e-3, 5.e8)
+                sp.set_zlim(f, 1.e-3, 5.e7)
             elif f == "z_velocity":
                 sp.set_zlim(f, -2.e8, 2.e8)
                 sp.set_log(f, False)
@@ -127,6 +127,10 @@ for plotfile in actual_files:
                 sp.set_cmap(f, "plasma_r")
             elif f in {"ash", "X(ash)"}:
                 sp.set_zlim(f, 1.e-5, 0.1)
+                sp.set_log(f, True)
+                sp.set_cmap(f, "plasma_r")
+            elif f == "ash_density":
+                sp.set_zlim(f, 1.e-2, 2e5)
                 sp.set_log(f, True)
                 sp.set_cmap(f, "plasma_r")
 

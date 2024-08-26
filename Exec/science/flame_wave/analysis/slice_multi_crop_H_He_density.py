@@ -118,7 +118,7 @@ for plotfile in actual_files:
                 sp.set_zlim(f, 5.e7, 1.5e9)
                 sp.set_cmap(f, "magma_r")
             elif f == "enuc":
-                sp.set_zlim(f, 1.e14, 3.e17)
+                sp.set_zlim(f, 1.e14, 1.e18)
             elif f == "density":
                 sp.set_zlim(f, 1.e-3, 5.e7)
             elif f == "z_velocity":
@@ -134,7 +134,7 @@ for plotfile in actual_files:
                 sp.set_log(f, True)
                 sp.set_cmap(f, "plasma_r")
             elif f == "ash_density":
-                sp.set_zlim(f, 1.e-3, 1e5)
+                sp.set_zlim(f, 1.e-2, 2e5)
                 sp.set_log(f, True)
                 sp.set_cmap(f, "plasma_r")
 
