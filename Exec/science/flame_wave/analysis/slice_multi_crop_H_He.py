@@ -17,7 +17,7 @@ from mpl_toolkits.axes_grid1 import ImageGrid
 from yt.units import cm
 from yt.frontends.boxlib.api import CastroDataset
 
-from util import get_fuel_info
+import util
 
 # yt.enable_parallelism()
 
@@ -73,16 +73,7 @@ for plotfile in actual_files:
 
     ds = CastroDataset(plotfile)
 
-    xmin = ds.domain_left_edge[0]
-    xmax = ds.domain_right_edge[0]
-    xctr = 0.5*(xmin + xmax)
-    L_x = xmax - xmin
-
-    ymin = 0.0*cm
-    ymax = 2.0e4*cm
-
-    yctr = 0.5*(ymin + ymax)
-    L_y = 1.0*(ymax - ymin)
+    bounds_kwargs = util.get_sliceplot_bounds(ds, plotfile)
 
     buff_size = (2400, 2400)
 
@@ -96,7 +87,9 @@ for plotfile in actual_files:
     else:
         fields = ["Temp", "ash", "enuc", "z_velocity"] #, "density"]
 
-    abar_min = 1.0 / sum(X / A for _, A, X in get_fuel_info(ds).values())
+    fuel_info = util.get_fuel_info(ds)
+    abar_min = 1.0 / sum(X / A for _, A, X in fuel_info.values())
+    fuel_fracs = util.get_fuel_fracs(fuel_info)
 
     grid = ImageGrid(fig, 111, nrows_ncols=(len(fields), 1),
                      axes_pad=0.27, label_mode="L", cbar_mode="each")
@@ -106,14 +99,14 @@ for plotfile in actual_files:
         for i, f in enumerate(fields):
             # pylint: disable=no-member
 
-            kwargs = {}
+            kwargs = bounds_kwargs.copy()
             if f == "enuc":
                 # mask out any negative values, since they can screw up the log-scale
                 # colormap bounds and make the background white instead of red
                 kwargs["data_source"] = ds.all_data().include_above("enuc", 0)
             if yt.version_info >= (4, 0, 0):
                 kwargs["buff_size"] = buff_size
-            sp = yt.SlicePlot(ds, "theta", f, center=[xctr, yctr, 0.0*cm], width=[L_x, L_y, 0.0*cm], fontsize=16, aspect=1.5, **kwargs)
+            sp = yt.SlicePlot(ds, "theta", f, fontsize=16, **kwargs)
             if "buff_size" not in kwargs:
                 sp.set_buff_size(buff_size)
 
@@ -159,7 +152,7 @@ for plotfile in actual_files:
 
             sp._setup_plots()
 
-        fig.text(0.52, 0.95, "{:.1f} ms".format(float(ds.current_time) * 1000), transform=fig.transFigure, ha="right", fontsize=24)
+        util.add_label(fig, ds, fuel_fracs["H1"])
 
         fig.set_size_inches(19.2, 10.8)
         plt.tight_layout()

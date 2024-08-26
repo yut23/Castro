@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+from yt.units import cm
 from yt.utilities.periodic_table import periodic_table
 
 
@@ -34,3 +37,40 @@ def get_fuel_info(ds):
             continue
         info[i+1] = (element, aion, fuel_frac)
     return info
+
+
+def get_fuel_fracs(fuel_info):
+    fracs = defaultdict(lambda: 0.0)
+    for element, aion, frac in fuel_info.values():
+        fracs[f"{element.symbol}{aion}"] = frac
+    return fracs
+
+
+def get_sliceplot_bounds(ds, plotfile):
+    print(ds.domain_width)
+
+    xmin = ds.domain_left_edge[0]
+    xmax = ds.domain_right_edge[0]
+    xctr = 0.5*(xmin + xmax)
+    L_x = xmax - xmin
+
+    ymin = 0.0*cm
+    ymax = 1.0e4*cm
+
+    yctr = 0.5*(ymin + ymax)
+    L_y = 1.0*(ymax - ymin)
+
+    aspect = 3
+
+    return {
+        "center": [xctr, yctr, 0.0*cm],
+        "width": [L_x, L_y, 0.0*cm],
+        "aspect": aspect,
+    }
+
+
+def add_label(fig, ds, hydrogen_fraction):
+    fig.text(0.54, 0.94, "{:.1f} ms, {:d}% H".format(
+        float(ds.current_time) * 1000,
+        round(hydrogen_fraction * 100)
+    ), transform=fig.transFigure, ha="right", fontsize=24)
