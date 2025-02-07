@@ -63,8 +63,8 @@ Backtrace.*
 
 Docs/build
 Docs/doxy_files
-Docs/class
-Docs/classlist.rst
+Docs/source/class/
+Docs/source/classlist.rst
 Docs/source/file/
 Docs/source/filelist.rst
 Docs/source/namespace/
