@@ -46,7 +46,16 @@ def _ash(field, data):
     return ash_sum
 
 
+# define rho_ash
+def _rho_ash(field, data):
+    """ash is anything beyond O, excluding Fe and Ni"""
+
+    ash_sum = _ash(field, data)
+    return ash_sum * data["gas", "density"]
+
+
 yt.add_field(("gas", "ash"), function=_ash, display_name="ash", units="(dimensionless)", sampling_type="cell")
+yt.add_field(("gas", "rho_ash"), function=_rho_ash, display_name=r"$\rho$ ash", units="auto", sampling_type="cell")
 
 
 files = sys.argv[1:]
@@ -61,7 +70,7 @@ imagefile_template = "{}_slice.png"
 actual_files = []
 for plotfile in sorted(set(files)):
     imagefile = imagefile_template.format(os.path.basename(plotfile))
-    if os.path.exists(imagefile) and not force:
+    if not force and os.path.exists(imagefile) and os.path.getsize(imagefile) > 0:
         print(f"skipping {os.path.basename(plotfile)} since an image already exists")
         continue
     actual_files.append(plotfile)
@@ -83,9 +92,9 @@ for plotfile in actual_files:
     if ("boxlib", "X(ash)") in ds.field_list:
         fields = ["Temp", "ash_density", "enuc", "z_velocity"]
     elif "_smallplt" in plotfile:
-        fields = ["Temp", "X(ash)", "enuc", "z_velocity"]
+        fields = ["Temp", "rho_ash", "enuc", "z_velocity"]
     else:
-        fields = ["Temp", "ash", "enuc", "z_velocity"] #, "density"]
+        fields = ["Temp", "rho_ash", "enuc", "z_velocity"] #, "density"]
 
     fuel_info = util.get_fuel_info(ds)
     abar_min = 1.0 / sum(X / A for _, A, X in fuel_info.values())
@@ -111,14 +120,14 @@ for plotfile in actual_files:
                 sp.set_buff_size(buff_size)
 
             if f == "Temp":
-                sp.set_zlim(f, 5.e7, 1.5e9)
+                sp.set_zlim(f, 5.e7, 2e9)
                 sp.set_cmap(f, "magma_r")
             elif f == "enuc":
-                sp.set_zlim(f, 1.e14, 1.e18)
+                sp.set_zlim(f, 1.e14, 1.e19)
             elif f == "density":
                 sp.set_zlim(f, 1.e-3, 5.e7)
             elif f == "z_velocity":
-                sp.set_zlim(f, -2.e8, 2.e8)
+                sp.set_zlim(f, -3.e8, 3.e8)
                 sp.set_log(f, False)
                 sp.set_cmap(f, "bwr")
             elif f == "abar":
@@ -129,7 +138,7 @@ for plotfile in actual_files:
                 sp.set_zlim(f, 1.e-5, 0.1)
                 sp.set_log(f, True)
                 sp.set_cmap(f, "plasma_r")
-            elif f == "ash_density":
+            elif f in {"ash_density", "rho_ash"}:
                 sp.set_zlim(f, 1.e-2, 2e5)
                 sp.set_log(f, True)
                 sp.set_cmap(f, "plasma_r")
@@ -153,6 +162,8 @@ for plotfile in actual_files:
 
             if f == "enuc":
                 sp.set_log(f, True)
+                # set the background color to the bottom value of the colormap
+                sp.set_background_color("enuc")
 
             sp._setup_plots()
 

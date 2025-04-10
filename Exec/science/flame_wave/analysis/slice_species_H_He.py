@@ -6,6 +6,7 @@ matplotlib.use('agg')
 
 import os
 import sys
+import traceback
 from collections import defaultdict
 
 import yt
@@ -35,8 +36,9 @@ imagefile_suffixes = ("_species.png", "_species_linear.png")
 actual_files = []
 for plotfile in sorted(set(files)):
     if not force and all(
-        os.path.exists(os.path.basename(plotfile) + suffix)
+        os.path.exists(imagefile) and os.path.getsize(imagefile) > 0
         for suffix in imagefile_suffixes
+        for imagefile in [os.path.basename(plotfile) + suffix]
     ):
         print(f"skipping {os.path.basename(plotfile)} since all images already exist")
         continue
@@ -154,7 +156,10 @@ for plotfile in actual_files:
         plt.savefig(basename + imagefile_suffixes[0])
 
         for f, sp in slice_plots.items():
-            sp.set_zlim(f, 0, min(initial_mass_fractions.get(f, 1.0 / 1.1) * 1.1, 1.0))
+            if f not in initial_mass_fractions:
+                sp.set_zlim(f, 0, 0.01)
+            else:
+                sp.set_zlim(f, 0, min(initial_mass_fractions[f] * 1.1, 1.0))
             sp.set_log(f, False)
             sp._setup_plots()
         fig.set_size_inches(19.2, 10.8)

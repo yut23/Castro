@@ -61,7 +61,7 @@ imagefile_template = "{}_slice_density.png"
 actual_files = []
 for plotfile in sorted(set(files)):
     imagefile = imagefile_template.format(os.path.basename(plotfile))
-    if os.path.exists(imagefile) and not force:
+    if not force and os.path.exists(imagefile) and os.path.getsize(imagefile) > 0:
         print(f"skipping {os.path.basename(plotfile)} since an image already exists")
         continue
     actual_files.append(plotfile)
@@ -115,14 +115,14 @@ for plotfile in actual_files:
                 sp.set_buff_size(buff_size)
 
             if f == "Temp":
-                sp.set_zlim(f, 5.e7, 1.5e9)
+                sp.set_zlim(f, 5.e7, 2e9)
                 sp.set_cmap(f, "magma_r")
             elif f == "enuc":
-                sp.set_zlim(f, 1.e14, 1.e18)
+                sp.set_zlim(f, 1.e14, 1.e19)
             elif f == "density":
                 sp.set_zlim(f, 1.e-3, 5.e7)
             elif f == "z_velocity":
-                sp.set_zlim(f, -2.e8, 2.e8)
+                sp.set_zlim(f, -3.e8, 3.e8)
                 sp.set_log(f, False)
                 sp.set_cmap(f, "bwr")
             elif f == "abar":
@@ -157,6 +157,8 @@ for plotfile in actual_files:
 
             if f == "enuc":
                 sp.set_log(f, True)
+                # set the background color to the bottom value of the colormap
+                sp.set_background_color("enuc")
 
             sp._setup_plots()
 
