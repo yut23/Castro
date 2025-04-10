@@ -143,7 +143,7 @@ def main():
     parser.add_argument("columns", nargs="+", metavar="column")
     args = parser.parse_args()
 
-    dat = pd.read_csv(args.data_file, sep=r"\s+")
+    dat = pd.read_csv(args.data_file, sep=r"\s+", comment="#")
 
     plt.style.use("ggplot")
     plt.figure(figsize=(8, 6))

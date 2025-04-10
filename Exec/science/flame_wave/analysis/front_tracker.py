@@ -16,8 +16,27 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import yt
+from yt.frontends.amrex.api import CastroDataset, CastroFieldInfo
+from yt.frontends.amrex.fields import Substance
 from yt.units import cm
 from yt.visualization._handlers import ColorbarHandler
+
+
+# monkey-patch CastroDataset to use a slightly modified CastroFieldInfo to add
+# `X(...)` around the substance in the display_name for `{sub}_density` fields
+class MyCastroFieldInfo(CastroFieldInfo):
+    def setup_fluid_fields(self):
+        super().setup_fluid_fields()
+        # modify the {sub}_density fields
+        for _, field in self.ds.field_list:
+            if field.startswith("X("):
+                sub = Substance(field)
+                x_field = self["boxlib", field]
+                x_density_field = self["gas", f"{sub}_density"]
+                x_density_field.display_name = r"\rho " + x_field.display_name
+
+
+CastroDataset._field_info_class = MyCastroFieldInfo
 
 
 class Transform(Enum):
@@ -289,6 +308,8 @@ default_limits = {
     "density": (1e-3, 1e8),
     "abar": (1, 6),
     "z_velocity": (-3e8, 3e8),
+    "h_he_log_ratio": (-0.5, 0.5),
+    "ash": (0, 0.2),
     "X(H1)": (0, 0.1),
     "X(He4)": (0, 0.9),
     "ash_density": (1e-2, 2e5),
@@ -297,6 +318,8 @@ default_cmaps = {
     "Temp": "magma_r",
     "abar": "plasma_r",
     "z_velocity": "bwr",
+    "h_he_log_ratio": "bwr",
+    "ash": "plasma_r",
     "ash_density": "plasma_r",
 }
 default_logs = {
