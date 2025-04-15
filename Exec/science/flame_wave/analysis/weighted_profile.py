@@ -116,7 +116,7 @@ def process_dataset(fname: str, args: _Arguments) -> tuple[Any, list[Any]]:
     values = []
     ad = ds.all_data()
     for f in args.fields:
-        cutoff = np.quantile(ad[f], args.percentile / 100)
+        cutoff = np.quantile(ad[f], args.percentile / 100).to_value()
         f_per = ad.exclude_below(f, cutoff)
         values.append(f_per.quantities.weighted_average_quantity(f, args.weight_field))
     return ds.current_time, values
